@@ -11,23 +11,7 @@
     $Receptor = $x -> getElementsByTagName('Receptor');
     $Concepto = $x -> getElementsByTagName('Concepto');
 
-echo "---------------------------------------------------- <BR>";
-    foreach ($Comprobante as $domi){
-      echo $domi->getAttribute('version') . "<br>";
-      echo $domi->getAttribute('serie') . "<br>";
-      echo $domi->getAttribute('folio') . "<br>";
-      echo $domi->getAttribute('fecha') . "<br>";
-      echo $domi->getAttribute('sello') . "<br>";
-      echo $domi->getAttribute('certificado') . "<br>";
-      echo $domi->getAttribute('formaDePago') . "<br>";
-      echo $domi->getAttribute('metodoDePago') . "<br>";
-      echo $domi->getAttribute('LugarExpedicion') . "<br>";
-      echo $domi->getAttribute('noCertificado') . "<br>";
-      echo $domi->getAttribute('tipoDeComprobante') . "<br>";
-      echo $domi->getAttribute('descuento') . "<br>";
-      echo $domi->getAttribute('subTotal') . "<br>";
-      echo $domi->getAttribute('total') . "<br>";  
-    }
+
 
 echo "---------------------------------------------------- <BR>";
     foreach ($Emisor as $emi){
@@ -75,36 +59,24 @@ echo "---------------------------------------------------- <BR>";
       echo $domi->getAttribute('valorUnitario') . "<br>";
       echo $domi->getAttribute('importe') . "<br>";
     }
+echo "---------------------------------------------------- <BR>";
+    
+      echo $x->getAttribute('version') . "<br>";
+      echo $x->getAttribute('serie') . "<br>";
+      echo $x->getAttribute('folio') . "<br>";
+      echo $x->getAttribute('fecha') . "<br>";
+      echo $x->getAttribute('sello') . "<br>";
+      echo $x->getAttribute('certificado') . "<br>";
+      echo $x->getAttribute('formaDePago') . "<br>";
+      echo $x->getAttribute('metodoDePago') . "<br>";
+      echo $x->getAttribute('LugarExpedicion') . "<br>";
+      echo $x->getAttribute('noCertificado') . "<br>";
+      echo $x->getAttribute('tipoDeComprobante') . "<br>";
+      echo $x->getAttribute('descuento') . "<br>";
+      echo $x->getAttribute('subTotal') . "<br>";
+      echo $x->getAttribute('total') . "<br>";  
+      
+    
 
 
 
-
-/*
-    foreach ($x->childNodes AS $item){
-        print $item->nodeName . " = " . $item->nodeValue . "<br />";
-        //print $item->telefon . "=" . $item->nodeValue . "<br />";
-        //echo "emma";
-    }
-    */
-    //foreach ($x->getElementsByTagName('telefon') as $telefon) {
-        //print $telefon->nodeName . " = " . $telefon->nodeValue . "<br />";
-        /*print "model: " . $telefon->childNodes->item(2)->nodeValue .
-          " model: " . $telefon->childNodes->item(1)->nodeValue .
-          " proizvodjac: " . $telefon->childNodes->item(2)->nodeValue .
-          " cena: " . $telefon->childNodes->item(0)->nodeValue;
-          echo "<br>";
-        foreach($x->childNodes as $fila) {
-            print $fila->nodeName . " = " . $fila->nodeValue . "<br />";
-            //printf("Name: %s - Type: %s - Value: %s\n", $node->nodeName, $node->nodeType, urlencode($node->nodeValue));
-            //printf("Name: %s - Type: %s - Value: %s\n");
-            //printf($node->nodeName);
-            /*print "emma: " . $telefon->childNodes->item(0)->nodeValue .
-          " model: " . $telefon->childNodes->item(1)->nodeValue .
-          " proizvodjac: " . $telefon->childNodes->item(2)->nodeValue .
-          " cena: " . $telefon->childNodes->item(3)->nodeValue;
-          echo "<br>";*/
-            //printf($node->nodeType);
-            //printf(urlencode($node->nodeValue));
-        //}
-    //}
-?>
