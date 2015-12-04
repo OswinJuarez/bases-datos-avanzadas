@@ -8,12 +8,22 @@ class BaseDeDatos
  private $contrasena;
  private $bd;
  private $mysqli;
+
  
 private $campos=null;
 private $donde=null;
 private $agrupacion="";
 private $ordenacion="";
 private $valores=null;
+private $count = null;
+private $columnaValorP = null;
+private $columnasValoresC = "";
+private $columna;
+private $inners = "";
+private $sentenciaPrim = "";
+private $sentenciaDos = "";
+private $tables_columns = "";
+
 
   public function __construct($host = null, $usuario = null, $contrasena = null, $bd = null)
     {
@@ -82,28 +92,7 @@ public function ordenar_por($campo, $direccion=" ASC "){
     return $this;
 }
 
-public function definir_campos($campo){
-    if($this->campos==""){
-        $this->campos=$campo;
-    }else{
-        $this->campos=$this->campos.", ".$campo;
-    }
 
-}
-
-
-
-public function obtener($tabla, $limite=null){
-    $sentencia="SELECT ".($this->campos!=null?$this->campos:'*').' FROM '.$tabla.($this->donde!=null?' WHERE '.$this->donde:'')
-                    .$this->agrupacion
-                    .$this->ordenacion
-                    .';';
-                    echo $sentencia;
-    $this->donde="";
-    $this->agrupacion="";
-    $this->ordenacion="";
-        return $this->mysqli->query($sentencia);
-}
 
 public function definir_valores($valor){
     if($this->valores==""){
@@ -111,8 +100,14 @@ public function definir_valores($valor){
     }else{
         $this->valores=$this->valores.", ".$valor;
     }
-
 }
+
+
+
+
+
+
+
 public function insertar($tabla){
     if ($this->valores) {
         $sentencia="INSERT INTO ".$tabla.($this->campos!=null?' ('.$this->campos.')':'').' VALUES ('.$this->valores.')';
@@ -130,6 +125,94 @@ public function borrar($tabla){
     }else{
         return false;
     }
+}
+
+
+
+
+
+public function updater($tabla){
+    if(is_string($tabla)){
+    //UPDATE table_name SET column1=value1,column2=value2,... WHERE some_column=some_value;
+      
+    $sentencia = "UPDATE ".$tabla." SET ".$this->columnasValoresC." WHERE ".$this->columnaValorP;
+    echo $sentencia;
+    return $this->mysqli->query($sentencia);
+}else{
+    return false;
+}
+}
+
+
+public function definir_campos($campo){
+    if($this->campos==""){
+        $this->campos=$campo;
+    }else{
+        $this->campos=$this->campos.", ".$campo;
+    }
+
+}
+
+public function obtener($tabla, $limite=null){
+    $sentencia="SELECT ".($this->campos!=null?$this->campos:'*').' FROM '.$tabla.($this->donde!=null?' WHERE '.$this->donde:'')
+                    .$this->agrupacion
+                    .$this->ordenacion
+                    .';';
+                    echo $sentencia;
+    $this->donde="";
+    $this->agrupacion="";
+    $this->ordenacion="";
+        return $this->mysqli->query($sentencia);
+}
+
+public function tablesColumnsInner($tables_column){
+    if($this->tables_columns ==""){
+        $this->tables_columns = $tables_column;
+    }else{
+        $this->tables_columns= $this->tables_columns.", ".$tables_column;
+    }
+    echo " tables ColumnsInner: ".$this->tables_columns." ";
+}
+
+public function definir_inner($tableX,$tableY,$tableXCol,$tableYCol){
+    if($this->sentenciaDos==""){
+    $this->sentenciaDos = $tableX." INNER JOIN ".$tableY." ON ".$tableXCol."=".$tableYCol;
+    }else{
+    $this->sentenciaDos = $this->sentenciaDos.", ".$tableX." INNER JOIN ".$tableY." ON ".$tableXCol."=".$tableYCol;
+    }
+    echo "definir_inner: ".$this->sentenciaDos." ";
+}
+
+public function inner(){
+$sentencia = "SELECT ".$this->tables_columns." FROM " .$this->sentenciaDos;
+echo " inner :".$sentencia."  ";
+$result = $this->mysqli->query($sentencia);
+$fila = mysqli_fetch_row($result);
+return $fila;
+}
+
+public function count($column,$tabla){
+    $sentencia = "SELECT COUNT(".$column.") FROM ".$tabla.";";
+    echo $sentencia;
+    $result = $this->mysqli->query($sentencia);
+    $fila = mysqli_fetch_row($result);
+    return $fila[0];
+}
+
+
+
+public function definir_Cambios($colum,$valor){
+    if($this->columnasValoresC==""){
+        $this->columnasValoresC=$colum."=".$valor;
+    }else{
+        $this->columnasValoresC=$this->columnasValoresC.", ".$colum."=".$valor;
+    } 
+}
+public function definir_Lugar($columna,$valor){
+
+        $this->columnaValorP=$columna."=".$valor;
+
+    
 }
 
 }
