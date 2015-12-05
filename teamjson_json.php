@@ -85,8 +85,15 @@
   //lo manda a la funcion 
   $arrayData = xmlToArray($xmlNode);
 
-  //imprime el array y lo codifica a json con la funcion "json_encode"
-  echo json_encode($arrayData);
+  //cadena json normal
+echo "<br/><br/><h3>Imprimiendo el json</h3><br/><br/>";
+echo json_encode($arrayData);
+
+
+//cadena json impresa con pretty
+echo "<br/><br/><br/> <br/> <h3>Imprimiendo el json con formato</h3><br/><br/>";
+$data= json_encode($arrayData);                                                          //*   
+echo json_encode($arrayData, JSON_PRETTY_PRINT);
 ?>
 
 <!DOCTYPE html>
