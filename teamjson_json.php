@@ -96,18 +96,19 @@ $data= json_encode($arrayData);                                                 
 echo json_encode($arrayData, JSON_PRETTY_PRINT);
 ?>
 
+
+echo "<br/><br/><br/> <br/><h3> Imprimiendo el json con otro formato (esta cadena no sirve en json viewer ya que tiene otro formato, es decir lo decodifica y transforma a php en forma de array)</h3><br/><br/>";                       //*
+print_r(json_decode($data, true));                                                                                                                                             
+?>
+ 
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>JSON</title>
+    <meta charset="UTF-8">
+    <title>JSON</title>
 </head>
-<body background="http://cdn.wonderfulengineering.com/wp-content/uploads/2013/11/apple-wallpaper-background-2.jpg">
-
-	<h1>XML a JSON</h1>
-	<h2>Aun no convierte desde un archivo XML</h2>
-  <p>Perdone la espera</p>
-	
-	
+<body background= "http://3.bp.blogspot.com/-OB_cw-HbCOw/UBbpNAcVOHI/AAAAAAAACKE/aGxqkO9Kirg/s1600/baby-blue-background-texture.jpg"
+     
 </body>
 </html>
