@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<cellphones>
+  <telefon>
+    <al>emma</al>
+    <model alberto="emmawatson">Easy DB</model>
+    <proizvodjac>Alcatel</proizvodjac>
+    <cena>25</cena>
+  </telefon>
+  <telefon>
+    <al>emma</al>
+    <model>3310</model>
+    <proizvodjac>Nokia</proizvodjac>
+    <cena>30</cena>
+  </telefon>
+  <telefon>
+    <al>emma</al>
+    <model>GF768</model>
+    <proizvodjac>Ericsson</proizvodjac>
+    <cena>15</cena>
+  </telefon>
+  <telefon>
+    <al>emma</al>
+    <model>Skeleton</model>
+    <proizvodjac>Panasonic</proizvodjac>
+    <cena>45</cena>
+  </telefon>
+  <telefon>
+    <al>emma</al>
+    <model>Earl</model>
+    <proizvodjac>Sharp</proizvodjac>
+    <cena>60</cena>
+  </telefon>
+</cellphones>
