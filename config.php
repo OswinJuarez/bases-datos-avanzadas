@@ -1,3 +1,3 @@
 <?php
 
-define('SMARTY_DIR', '/usr/local/lib/php/Smarty/');
+define('SMARTY_DIR', 'libs/smarty/');
