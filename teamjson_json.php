@@ -94,7 +94,7 @@ echo json_encode($arrayData);
 echo "<br/><br/><br/> <br/> <h3>Imprimiendo el json con formato</h3><br/><br/>";
 $data= json_encode($arrayData);                                                          //*   
 echo json_encode($arrayData, JSON_PRETTY_PRINT);
-?>
+
 
 
 echo "<br/><br/><br/> <br/><h3> Imprimiendo el json con otro formato (esta cadena no sirve en json viewer ya que tiene otro formato, es decir lo decodifica y transforma a php en forma de array)</h3><br/><br/>";                       //*
